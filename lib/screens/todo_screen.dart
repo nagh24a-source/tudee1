@@ -1,102 +1,107 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'home_screen.dart';
 
-class TodoScreen extends StatefulWidget {
-  const TodoScreen({super.key});
-
-  @override
-  State<TodoScreen> createState() => _TodoScreenState();
-}
-
-class _TodoScreenState extends State<TodoScreen> {
-  // Controller لأخذ الاسم من المستخدم
-  final TextEditingController nameController =
-  TextEditingController();
+class TodoScreen extends StatelessWidget {
+  const TodoScreen ({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffFCE9E9),
+      backgroundColor: Color(0xffFCE8E8),
 
+      // الغلط العلوى
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
-        title: const Text('Tudee'),
+        title: Text('Tudee' ,
+          style: TextStyle(fontFamily: 'cherry'
+              ,color: Colors.white),),
       ),
 
       body: Padding(
-        padding:  EdgeInsets.all(20),
-
+        padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-
           children: [
-            const SizedBox(height: 40),
+            SizedBox(height: 15),
 
-            const Text(
+            Text(
               "Let's get started",
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 15),
 
-            const Text(
+            Text(
               'What should we call you?',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
             ),
 
-            const SizedBox(height: 15),
+            SizedBox(height: 20),
 
-            // حقل إدخال الاسم
-            TextField(
-              controller: nameController,
-
-              decoration: InputDecoration(
-                hintText: 'Your name',
-                filled: true,
-                fillColor: Colors.white,
-
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+            // مربع كتابة الاسم
+            Container(
+              width: double.infinity,
+              height: 55,
+              padding: EdgeInsets.symmetric(horizontal: 18),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: Color(0xffD9DEE7),
+                ),
+              ),
+              child: TextField(
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  hintText: 'Your name',
+                  hintStyle: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                  border: InputBorder.none,
                 ),
               ),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
 
+            // زر الحفظ
             SizedBox(
               width: double.infinity,
-              height: 55,
-
+              height: 50,
               child: ElevatedButton(
-                // عند الضغط على Save
                 onPressed: () {
-                  // أخذ الاسم
-                  String userName =
-                  nameController.text.trim();
-
-                  // التأكد أن الاسم ليس فارغًا
-                  if (userName.isNotEmpty) {
-                    // الانتقال إلى الصفحة الرئيسية
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(
-                          userName: userName,
-                        ),
-                      ),
-                    );
-                  }
+                  Get.to(() => HomeScreen());
                 },
-
-                child: const Text('Save'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff39B5E5),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: Text(
+                  'Save',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
+
     );
   }
 }

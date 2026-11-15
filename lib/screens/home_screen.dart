@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:untitled8/screens/tasks_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -139,17 +141,11 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TasksScreen(
-              ),
-            ),
-          );
+          Get.to(() => TasksScreen());
         },
         backgroundColor: Color(0xff3A9CCD),
         child: Icon(
-          Icons.add,
+          Icons.post_add,
           color: Colors.white,
           size: 30,
         ),
