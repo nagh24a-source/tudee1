@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled8/screens/home_screen.dart';
-import 'package:untitled8/screens/tasks_screen.dart';
 import 'package:untitled8/screens/todo_screen.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       // أول صفحة تظهر عند تشغيل التطبيق
-      home: HomeScreen(),
+      home: TodoScreen(),
     );
   }
 }

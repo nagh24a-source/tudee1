@@ -8,7 +8,7 @@ class EdittaskScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffFCE8E8),
 
-      // الغلط العلوى
+      // الخلط العلوى
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
         title: Text('Tudee',
